@@ -13,13 +13,17 @@ public class Shoop {
 		this.tailLength = this.tailLength + 2;
 	}
 
-	public void describeShoop(){
-		System.out.println("My tail length is "+ tailLength + " and I am a " + shape);
+	public void describeShoop() {
+		System.out.println("My tail length is " + tailLength + " and I am a " + shape);
 	}
-	
+
+	public void cutWool() {
+		System.out.println("I have no shape anymore!");
+	}
+
 	public static void main(String[] args) {
-		Shoop bob = new Shoop(2, "triangle");
-		bob.lengthenTail();
-		bob.describeShoop();
+		// Insert commands here
+
 	}
+
 }
