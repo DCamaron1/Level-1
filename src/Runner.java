@@ -10,6 +10,7 @@ public class Runner {
 	public Runner(String name){
 		this.name=name;
 		bibNumber=bibNumber+count;
+		count=count+1;
 	}
 	
 	public void setSpeed(int speed){
@@ -21,7 +22,7 @@ public class Runner {
 		
 	}
 	public String toString(){
-		return name+ " ,runner "+ bibNumber  + " is in the city of " + city;
+		return name+ " ,runner "+ bibNumber  + ", is in the city of " + city;
 	}
 	
 	
@@ -30,6 +31,11 @@ public class Runner {
 		jim.setSpeed(10);
 		Runner.setCity("Chicago");
 		System.out.println(jim);
+		Runner tim= new Runner("Tim");
+		jim.setSpeed(10);
+		Runner.setCity("New York");
+		System.out.println(tim);
+		
 		
 	}
 }
