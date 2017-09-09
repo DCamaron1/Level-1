@@ -1,40 +1,48 @@
+Minim minim;
+  AudioSample sound;
 
 //1.Make a canvas for your game.
   import ddf.minim.*;
-  Minim minim;
-  AudioSample sound;
+ // Minim minim;
+ // AudioSample sound;
+  PImage backgroundImage;  
 void setup(){
   size(800,1000);
   background(255,255,255);
   minim = new Minim (this); 
-  
+  backgroundImage = loadImage("background.jpg");
   sound = minim.loadSample("sad.wav", 128);
+  image(backgroundImage, 0, 0, 800, 1000);
 } 
  
 void draw(){
-   //background(255,255,255);
+   //background(255,255,230);
+   //image(backgroundImage, 0, 0, 800, 1000);
    ellipse(x=x+speedX,y=y+speedY,100,100); 
-   fill(random(255),random(255),random(255)); 
-   stroke(0,0,0);
+   fill(255,255,255); 
+   //stroke(60,10,200);
+   stroke(55,255,55);
      if(x==width){
        speedX=-speedX; 
      }
      if(x==0){
-       speedX=10;
+       speedX=20;
      }  
      if(y==height){
        speedY=-speedY; 
      }
      if(y==0){
-       speedY=5;
+       speedY=10;
      }  
+     if(x==900){
+       
      sound.trigger();
-   
+     }
 }
 int x = 0;
 int y = 0;
-int speedX = 10;
-int speedY = 1;
+int speedX = 20;
+int speedY = 10;
 
 /*//2. Draw a ball on the screen.
 
@@ -79,4 +87,3 @@ if (ballY > paddleY && ballX > paddleX && ballX < paddleX + paddleLength)
 return true;
 else s
 }*/
-
