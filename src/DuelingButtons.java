@@ -45,8 +45,8 @@ public class DuelingButtons implements ActionListener {
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		JButton buttonPressed = (JButton) arg0.getSource();
+	public void actionPerformed(ActionEvent e) {
+		JButton buttonPressed = (JButton) e.getSource();
 		if (buttonPressed==leftButton) {
 			rightButton.setText("No, click me!");
 			rightButton.setPreferredSize(BIG);
