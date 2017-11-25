@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -7,61 +8,69 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class BinaryConverter implements ActionListener{
-	
+public class BinaryConverter implements ActionListener {
+
 	JFrame frame = new JFrame();
 	JPanel panel = new JPanel();
 	JButton convert = new JButton();
+	JButton ok = new JButton();
 	JTextField text = new JTextField(15);
 	JLabel label = new JLabel();
-	
-	private void createUI(){
+	JLabel labels = new JLabel();
+
+	private void createUI() {
 		frame.add(panel);
 		frame.setVisible(true);
 		frame.setSize(350, 200);
 		panel.add(label);
-		label.setText("Input a number between 1 and 15");
+		label.setText("Input a input between 1 and 15");
 		panel.add(text);
 		panel.add(convert);
+		panel.add(labels);
 		convert.addActionListener(this);
 		convert.setText("Convert");
-		
+		panel.add(ok);
+		ok.setText("ok");
+		ok.addActionListener(this);
+
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		JButton buttonPressed = (JButton) e.getSource();
-		if (buttonPressed== convert){
-			String input = text.getText();
-			int number = Integer.parseInt(input);
-			System.out.println(number);
+		if (buttonPressed == convert) {
+			String answer = text.getText();
+			int input = Integer.parseInt(answer);
 			
+			
+			int eightsDigit = input / 8;
+			input = input - 8 * eightsDigit;
+			
+
+			int fourthsDigit = input / 4;
+			input = input - 4 * fourthsDigit;
+			
+
+			int twosDigit = input / 2;
+			input = input - 2 * twosDigit;
+			
+
+			int onesDigit = input / 1;
+			input = input - 1 * onesDigit;
+			
+			//System.out.println();
+			panel.setBackground(Color.GREEN);
+			labels.setText("The number is: " + eightsDigit + fourthsDigit + twosDigit + onesDigit);
+		}
+		if(buttonPressed==ok){
+			frame.dispose();
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		BinaryConverter bob = new BinaryConverter();
-		//bob.createUI();
-		int number = 9;
-		int eightsDigit = number/8;
-		number= number-8*eightsDigit;
-		System.out.print(number);
+		bob.createUI();
 
-		int fourthsDigit = number/4;
-		number= number-4*fourthsDigit;
-		System.out.print(number);
-
-		int twosDigit = number/2;
-		number = number-2*twosDigit;
-		System.out.print(number);
-
-		int onesDigit = number/1;
-		number = number-1*onesDigit;
-		System.out.print(number);
-		
-		
-		
-		
 	}
 }
