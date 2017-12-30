@@ -1,0 +1,26 @@
+<html>		
+	<head>	
+		<title> Simple Website </title>	
+		<link href="Style2.css" rel="stylesheet"/>
+		
+	</head>
+	
+	<body>
+		<h1> Hello there! </h1>
+		<h2> Siri is speaking. </h2>
+		<p> Click on the link below to go somewhere special, where you can avoid responsibilities all day. </p>
+		<a href= "http://patorjk.com/games/snake/"> click here </a>
+		<button type="button" id="the-button"> click here </button>
+		<p class="my-class">One </p>
+		<p> Two </p>
+		<p class="my-class"> Three </p>
+		<script>
+			document.getElementById('the-button').onclick = function(){
+				var pList= document.getElementsByClassName('my-class');
+				for(var i=0; i<pList.length;i++){
+					pList[i].style.color= 'blue';
+				}
+			}
+		</script>
+	</body>
+</html>
